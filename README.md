@@ -1,3 +1,3 @@
 # elf+js site project
 
-Visit here: [http://elfjs.com/][]
+Visit here: http://elfjs.com/
