@@ -4,6 +4,8 @@ pygments: true
 safe: false
 permalink: /blog/posts/:title.html
 paginate: 10
+exclude:
+  - README.md
 
 host: elfjs.com
 
