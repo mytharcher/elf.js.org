@@ -32,7 +32,7 @@
 		<div id="MainBody" class="{{page.mainClass}}">{{ content }}</div>
 		
 		<div id="Footer">
-			<p>该项目所有代码使用<a href="http://github.com/elfjs/" target="_blank">github</a>托管，并以<a href="/license.txt" target="_blank">MIT协议</a>授权许可。[<a href="/docs/develop/contributor.html">贡献者</a>]</p>
+			<p>该项目所有代码使用<a href="http://github.com/elfjs/" target="_blank">github</a>托管，并以<a href="/LICENSE" target="_blank">MIT协议</a>授权许可。[<a href="/docs/develop/contributor.html">贡献者</a>]</p>
 			<p>&copy; Since 2011 <a href="http://elfjs.com/">elfjs.com</a> Email:<a href="#" class="email-link">elfjslib<span class="symbol">[at]</span>gmail<span class="symbol">[dot]</span>com</a></p>
 		</div>
 	</div>
@@ -42,7 +42,7 @@
 <script type="text/javascript" src="/assets/js/site.js"></script>
 {% for script in page.scripts %}<script src="{{ script }}"></script>
 {% endfor %}
-<!--
+
 <div style="display:none">
 <script type="text/javascript">
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
@@ -60,6 +60,5 @@ _gaq.push(['_trackPageview']);
 })();
 </script>
 </div>
--->
 </body>
 </html>
