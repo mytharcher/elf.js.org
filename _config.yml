@@ -1,0 +1,117 @@
+markdown: kramdown
+permalink: pretty
+pygments: true
+safe: false
+permalink: /blog/posts/:title.html
+paginate: 10
+
+host: elfjs.com
+
+modules:
+    blog:
+        release: 发布记录
+        introduction: 给点解释
+        communication: 信访交流
+
+        name: blog
+        title: 博客
+        categories:
+          - name:  release
+            title: 发布记录
+    
+          - name:  introduction
+            title: 给点解释
+    
+          - name:  communication
+            title: 信访交流
+
+    docs:
+        name: docs
+        title: 文档
+        categories:
+          - name:  intro
+            title: 功能介绍
+    
+          - name:  support
+            title: 帮助与支持
+    
+          - name:  develop
+            title: 参与贡献
+
+release:
+    latest: &latest_release
+        current:  true
+        version:  0.3.1
+        date:     2011-12-27
+        note:     /blog/posts/0.3.1-release-note.html
+        change:   /downloads/changelog.html
+        file:
+            src:
+                size: 213
+                sha1: b23b239cf1b663ae076d20ff86ac50a5afa5ceca
+            min:
+                size: 47
+                sha1: f80241dc659f24edd95f5dfc5b9a854e98835bdb
+            gzip:
+                size: 16
+                sha1: 9a548235d4565a922cddf96a8a1530bf5af010db
+
+    history:
+      - *latest_release
+      
+      - version:  0.3.0
+        date:     2011-12-24
+        note:     /blog/posts/0.3.0-release-note.html
+        change:   /downloads/changelog.html#0.3.0
+
+      - version: 0.2.0
+        date: 2011-06-24
+
+download:
+    base: https://elfjs.googlecode.com/files/
+    type:
+        gzip: &down_type_gzip
+            type: gzip
+            title: GZip压缩
+            suffix: -min.js.gz
+
+        min: &down_type_min
+            type: min
+            title: GCC压缩
+            suffix: -min.js
+
+        src: &down_type_src
+            type: src
+            title: 源码
+            suffix: .js
+
+    typeList:
+      - *down_type_gzip
+      - *down_type_min
+      - *down_type_src
+
+links:
+    builder:
+        text: 在线jslib-builder
+        url:  http://builder.elfjs.com/
+    download:
+        text: 下载
+        url:  /downloads/
+
+meta:
+    authors:
+      - name: mytharcher
+        email: mytharcher@gmail.com
+        gravatar: 1cd8c12591616d8c22aaa624f8c07834
+
+    gravatar:
+        base: http://www.gravatar.com/avatar/
+        param: ?s=
+
+testing:
+    group:
+      - &test
+        name:  测试分类锚点
+        title: testanchor
+        
+      - *test

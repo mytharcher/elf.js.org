@@ -1,0 +1,11 @@
+---
+layout: blog
+title:  博客 / 信访交流
+
+traceHTML: |
+    / <a href="/blog/">博客</a>
+    <span class="sub-path">/ <a href="/blog/communication/">信访交流</a>分类</span>
+---
+
+{% assign list = site.categories.communication %}
+{% include blog/list.tpl %}

@@ -1,0 +1,11 @@
+---
+layout: blog
+title:  博客 / 给点解释
+
+traceHTML: |
+    / <a href="/blog/">博客</a>
+    <span class="sub-path">/ <a href="/blog/introduction/">给点解释</a>分类</span>
+---
+
+{% assign list = site.categories.introduction %}
+{% include blog/list.tpl %}

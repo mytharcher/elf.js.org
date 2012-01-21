@@ -1,0 +1,48 @@
+﻿#Header{height:70px; padding:10px 0;}
+#Header .logo{height:50px;}
+#Header .additional{left:165px; bottom:10px; font-size:80%; line-height:1.5em;}
+
+#Footer{margin-top:50px;}
+
+#Preview{position:relative; zoom:1; font-size:80%; line-height:1.5em;}
+#Preview .layout-section{position:relative; zoom:1; width:640px; height:240px; overflow:hidden;}
+#Preview .layout-section:before,
+#Preview .layout-section:after{position:absolute; top:0; font:200px/.8em Calibri, Arial; color:#ccc;}
+#Preview .layout-section:before{left:0; content:"{";}
+#Preview .layout-section:after{right:0; content:"}";}
+#Preview .layout-section .layout-content{margin:30px 75px 0 75px;}
+#Preview .layout-section p{margin:.3em 0 .7em 0; text-shadow:1px 1px 1px #fff;}
+#Preview .layout-section p.minor{color:#aaa;}
+#Preview .layout-section p.content{font:28px/1.4em "Microsoft YaHei", "微软雅黑", "宋体", Arail;}
+#Preview .layout-section p.support{text-align:right;}
+#Preview .layout-section p.support label{font-size:small;}
+#Preview .layout-section p.support img{opacity:.5; filter:alpha(opacity=50); vertical-align:bottom;
+	-moz-transition:opacity 0.5s;
+	-webkit-transition:opacity 0.5s;
+	transition:opacity 0.5s;
+	transition:opacity 0.5s;
+}
+#Preview .layout-section p.support img:hover{opacity:1; filter:alpha(opacity=100);}
+
+#Preview .layout-aside{position:absolute; right:0; top:0; width:280px;}
+#Preview .layout-aside h3{height:30px; background:url(/assets/img/tryit.png) no-repeat left center; margin:5px 0;}
+#Preview .download-button a.button{padding:5px 20px; font:bold 16px Arial, Helvetica, sans-serif;}
+#Preview .layout-aside p{margin:10px 0;}
+#Preview p.version{margin:5px 0;}
+
+#Products ul{width:100%;}
+#Products ul:after{display:block; clear:both; content:'.'; height:0; overflow:hidden; visibility:hidden;}
+#Products ul li{position:relative; zoom:1; float:left; list-style:none; width:320px; padding-right:20px; border-left:1px dotted #ccc;}
+#Products ul li:first-child{border-left:0;}
+#Products ul li:last-child{}
+#Products #Jslib{border-top-color:#06c;}
+#Products #Elfjs{border-top-color:#53bd1a;}
+#Products #Builder{border-top-color:#c60;}
+#Products div.item-icon{position:absolute; left:10px; top:0;}
+#Products div.content-block{margin-left:85px;}
+#Products h4{margin-bottom:10px; font-size:85%;}
+#Products h4 a{color:#666;}
+#Products h4 a:hover{color:#000;}
+#Products div.content-block p{margin:10px 0; font-size:75%; line-height:1.6em;}
+
+#ExampleCode{font:12px "Courier New";}

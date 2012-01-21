@@ -1,0 +1,45 @@
+---
+layout: doc
+title:  文档索引
+date:   2011-12-27
+
+mainClass: doc-collapse-menu
+
+trace: 文档
+traceHTML: |
+    / <a href="/docs/">文档</a> / 索引
+
+styles:
+  - /assets/css/docs.css
+---
+
+<style>
+.doc-column-wrap{zoom:1;}
+.doc-column-wrap:after{content:'.'; display:block; clear:both; height:1px; overflow:hidden; visibility:hidden;}
+.doc-menu-column{float:left; width:50%;}
+.doc-menu-column>h2:first-child{margin-top:0;}
+</style>
+
+<div class="doc-column-wrap">
+	<div class="doc-menu-column">
+		<h2>功能介绍</h2>
+		{% include docs/intro-menu.tpl %}
+	</div>
+	
+	<div class="doc-menu-column">
+		<h2><a href="/docs/api/latest/" target="_blank">API参考手册</a></h2>
+		
+		<h2>帮助与支持</h2>
+		<ul>
+			<li><a href="/docs/support/faq.html">常见问题</a></li>
+			<li><a href="/docs/support/bug-report.html">Bug 报告</a></li>
+		</ul>
+		
+		<h2>参与贡献</h2>
+		<ul>
+			<li><a href="/docs/develop/">参与开发</a></li>
+			<li><a href="/docs/develop/criterion.html">开发规范</a></li>
+			<li><a href="/docs/develop/contributor.html">贡献者</a></li>
+		</ul>
+	</div>
+</div>

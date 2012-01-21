@@ -1,0 +1,84 @@
+---
+layout: content
+title:  下载 - Downlaods
+date:   2011-12-27
+
+pageClass: page-type-content page-type-download
+
+styles:
+  - /assets/css/docs.css
+
+trace: 下载 - Downloads
+traceHTML: |
+    / <a href="/downloads/">下载</a>
+---
+
+<div class="doc-content">
+	<h1>下载列表</h1>
+	
+	<h2>最新发布</h2>
+	
+	<div class="release-latest">
+		<dl>
+			<dt>版本号</dt>
+			<dd><strong>{{ site.release.latest.version }}</strong></dd>
+		
+			<dt>发布日期</dt>
+			<dd>{{ site.release.latest.date }}</dd>
+			
+			<dt>版本说明</dt>
+			<dd><a href="{{ site.release.latest.note }}">查看发布日志</a> | <a href="{{ site.release.latest.change }}">变更记录</a></dd>
+		</dl>
+		
+		<table>
+			<thead>
+				<tr>
+					<th>下载文件</th>
+					<th>类型 (大小)</th>
+					<th>SHA1 Checksum</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for type in site.download.typeList %}
+				<tr>
+					<td><a href="{{ site.download.base }}elf-{{ site.release.latest.version }}{{ type.suffix }}">elf-{{ site.release.latest.version }}{{ type.suffix }}</a></td>
+					<td>{{ type.title }} ({{ site.release.latest.file[type.type].size }} KB)</td>
+					<td><code>{{ site.release.latest.file[type.type].sha1 }}</code></td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	
+	<p>除了下载已发布的版本，你还可以根据具体的需求利用<a href="{{ site.links.builder }}" target="_blank">在线的jslib-builder</a>进行自由定制打包。</p>
+	
+	<h2>历史版本</h2>
+	
+	<table class="release-history">
+		<thead>
+			<tr>
+				<th>版本号</th>
+				<th>发布日期</th>
+				<th>下载</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for release in site.release.history %}
+			<tr id="{{ release.version }}">
+				<td class="{% if release.current %}current{% endif %}">{% if release.note %}<a href="{{ release.note }}" title="elf+js {{ release.version }} 发布日志">{{ release.version }}</a>{% else %}{{ release.version }}{% endif %}{% if release.current %} <span class="new">(当前最新)</span>{% endif %}</td>
+				<td>{{ release.date }}</td>
+				<td><a href="{{ site.download.base }}elf-{{ release.version }}{{ site.download.type.min.suffix }}">压缩版本</a> | <a href="{{ site.download.base }}elf-{{ release.version }}{{ site.download.type.src.suffix }}">源码</a></td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	
+	<h2>获取开发中的代码</h2>
+	<p>从版本<a href="#0.2.0">0.2.0</a>开始我们使用了github来管理<a href="https://github.com/elfjs/" target="_blank">elf+js项目</a>相关的所有源代码（更早的代码使用<a href="https://code.google.com/p/javascript-common-lib/" target="_blank">Google Code</a>维护），jslib和elf分别是两个独立的项目，可以通过下面的地址获取全部开发中的代码：</p>
+	<ul>
+		<li>jslib: <a href="https://github/elfjs/jslib/" target="_blank">https://github/elfjs/jslib/</a></li>
+		<li>elf: <a href="https://github/elfjs/elf/" target="_blank">https://github/elfjs/elf/</a></li>
+	</ul>
+	
+	<p>-EOF-</p>
+</div>

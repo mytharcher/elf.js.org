@@ -1,0 +1,11 @@
+---
+layout: blog
+title:  博客 / 发布记录
+
+traceHTML: |
+    / <a href="/blog/">博客</a>
+    <span class="sub-path">/ <a href="/blog/release/">发布记录</a>分类</span>
+---
+
+{% assign list = site.categories.release %}
+{% include blog/list.tpl %}

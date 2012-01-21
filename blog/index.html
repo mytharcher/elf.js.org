@@ -1,0 +1,13 @@
+---
+layout: blog
+title:  博客 - Blog
+
+traceHTML: |
+    / <a href="/blog/">博客</a>
+    <span class="sub-path">/ 全部文章</span>
+---
+
+{% assign list = site.posts %}
+{% include blog/list.tpl %}
+
+<!-- TODO: Achieve -->
