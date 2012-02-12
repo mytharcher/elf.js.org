@@ -84,7 +84,7 @@ js.dom | 包 | DOM操作相关功能包
 js.dom.Attribute | 静态类 | 元素属性操作类
 js.dom.ClassName | 静态类 | 元素class属性操作类
 js.dom.Cookie | 静态类 | cookie管理类
-js.dom.DragMove | 静态类 | 元素拖动控制类
+js.dom.Drag | 静态类 | 元素拖动控制类
 js.dom.Event | 静态类 | DOM事件管理类
 js.dom.Node | 普通类 | 元素集合控制类(类似jQuery主类)
 js.dom.Operation | 静态类 | 元素操作类
@@ -309,10 +309,10 @@ js.util.XArray | 派生类 | 扩展数组类(继承自Array)
 			age: 27
 		},
 		responseType: 'JSON'
-		onSuccess: function (response) {
+		onsuccess: function (response) {
 			// 请求成功后更多的处理
 		},
-		onFailure: function (xhr) {
+		onfailure: function (xhr) {
 			// 当失败时候的处理
 		}
 	});
@@ -363,4 +363,4 @@ elf+js根据ecma-262第五版和JavaScript 1.8中已有的标准针对低级浏�
 -EOF-
 
 [mytharcher]: mailto:mytharcher@gmail.com
-[API参考手册]: /docs/api/latest/
+[{{ site.links.api.text }}]: {{ site.links.api.url }}

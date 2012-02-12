@@ -23,6 +23,26 @@ var site = {
 				});
 			},
 			
+			list: function () {
+				elf('#BlogList>li>h2').on('click', function (ev) {
+					var target = ev.target,
+						item = elf(target).parent();
+					if (target.nodeName != 'A' && item.attr('data-loaded') != 1) {
+						elf().ajax({
+							url: target.firstChild.getAttribute('href'),
+							onsuccess: function (response) {
+								var content = response.split('<p class="blog-meta">')[1].split('</p>');
+								content.shift();
+								content = content.join('</p>').split(/<\/div>\s*<div id="disqus_thread" class="doc-comments">/)[0];
+								item.query('>div.doc-content').html(content);
+								item.attr('data-loaded', 1);
+							}
+						});
+					}
+					target = null;
+				});
+			},
+			
 			docs: function () {
 				elf('pre').forEach(function (item) {
 					hljs.highlightBlock(item);
@@ -137,7 +157,7 @@ site.lib.ScrollFollow = elf().Class({
 			this.startTop :
 			(this.startTop = this.getStartTop());
 		var originTop = this.getOriginTop();
-		var followingBottom = this.followingBottom || (this.followingBottom = this.getFollowingAbsBottom());
+		var followingBottom = this.followingBottom = this.getFollowingAbsBottom();
 		var followingWidth = this.followingWidth || (this.followingWidth = this.getFollowingWidth());
 		var followingHeight = this.followingHeight || (this.followingHeight = this.getFollowingHeight());
 		var followingMargin = this.followingMargin || (this.followingMargin = this.getFollowingMargin());

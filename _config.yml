@@ -3,8 +3,8 @@ permalink: pretty
 pygments: true
 safe: false
 permalink: /blog/posts/:title.html
-paginate: 10
 exclude:
+  - CNAME
   - README.md
 
 host: elfjs.com
@@ -43,10 +43,26 @@ modules:
 release:
     latest: &latest_release
         current:  true
-        version:  0.3.1
+        version:  0.3.2
+        date:     2012-02-12
+        note:     /blog/posts/0.3.2-release-note.html
+        file:
+            src:
+                size: 216
+                sha1: b2d78c8807855b2cfc81b3b1f1ae9393ce5b3c97
+            min:
+                size: 48
+                sha1: 82d5dec559dacac6e1a3c3200cb42cd870fb96cd
+            gzip:
+                size: 16
+                sha1: 4903e4f5e87066fec576c6923cdb198d7aa040fe
+
+    history:
+      - *latest_release
+
+      - version:  0.3.1
         date:     2011-12-27
         note:     /blog/posts/0.3.1-release-note.html
-        change:   /downloads/changelog.html
         file:
             src:
                 size: 213
@@ -57,17 +73,13 @@ release:
             gzip:
                 size: 16
                 sha1: 9a548235d4565a922cddf96a8a1530bf5af010db
-
-    history:
-      - *latest_release
       
       - version:  0.3.0
         date:     2011-12-24
         note:     /blog/posts/0.3.0-release-note.html
-        change:   /downloads/changelog.html#0.3.0
 
-      - version: 0.2.0
-        date: 2011-06-24
+      - version:  0.2.0
+        date:     2011-06-24
 
 download:
     base: https://elfjs.googlecode.com/files/
@@ -93,9 +105,15 @@ download:
       - *down_type_src
 
 links:
+    api:
+        text: API参考手册
+        url:  http://api.elfjs.com/
     builder:
         text: 在线jslib-builder
         url:  http://builder.elfjs.com/
+    changelog:
+        text: 变更记录
+        url:  /docs/changelog.html
     download:
         text: 下载
         url:  /downloads/

@@ -22,7 +22,7 @@ traceHTML:
 		url: SOME_URL,
 		method: js.net.Ajax.HTTP_POST,
 		responseType: js.net.Ajax.DATA_TYPE_JSON,
-		onSuccess: someLoadHandler
+		onsuccess: someLoadHandler
 	});
 
 初始化请求以后并没有立即发送这个请求，同时也没有在其中写入需要发送的参数，而是在需要的时候再控制发送。例如我可以要求在点击一个按钮后再去获取一些数据进行发送：
@@ -56,11 +56,11 @@ contentType | String | 内容编码类型，默认：'application/x-www-form-url
 encoding | String | 字符编码方式，默认：'utf-8'。
 responseType | String | 返回内容类型，'text'：纯文本；'xml'：XML文档树；'json'：JSON数据对象。默认：'text'。
 encoder | Function | 编码函数，默认使用encodeURIComponent()编码。
-onSuccess | Function | 请求状态成功时的处理。
-onFailure | Function | 请求状态失败时的处理。
-onComplete | Function | 请求完成时的处理。
-onDuplicate | Function | 请求重复时的处理，如此接口函数返回为false，则忽略新的请求。
-onJSONError | Function | 当JSON返回类型解析失败时的处理。
+onsuccess | Function | 请求状态成功时的处理。
+onfailure | Function | 请求状态失败时的处理。
+oncomplete | Function | 请求完成时的处理。
+onduplicate | Function | 请求重复时的处理，如此接口函数返回为false，则忽略新的请求。
+onjsonerror | Function | 当JSON返回类型解析失败时的处理。
 
 通过这个表，你可以了解到使用一个Ajax实例时所有可以用到的配置项和默认值，属性这些在开发的时候会带来很大的方便。
 

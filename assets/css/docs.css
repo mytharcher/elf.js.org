@@ -31,9 +31,11 @@
 .doc-content h6,
 .doc-content p{margin:.8em 0;}
 .doc-content ul,
-.doc-content ol{padding-left:30px;}
+.doc-content ol{padding-left:2em;}
 .doc-content dl{margin:.5em .8em;}
 .doc-content dl dd{margin-left:2em;}
+.doc-content dl dd>ul,
+.doc-content dl dd>ol{padding-left:1em;}
 .doc-content pre{width:100%; overflow-x:auto; line-height:1.2em; border:1px solid #ccc; background:#F8F8FF; font-size:85%;}
 .doc-content code{margin:auto 1px; padding:auto 2px; background:#f8f8f8; font-family:"Inconsolata", "Monaco", "Consolas", "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;}
 .doc-content table{border-collapse:collapse;}
