@@ -4,7 +4,6 @@ pygments: true
 safe: false
 permalink: /blog/posts/:title.html
 exclude:
-  - CNAME
   - README.md
 
 host: elfjs.com
