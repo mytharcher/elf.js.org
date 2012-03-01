@@ -10,10 +10,6 @@ var site = {
 			},
 			
 			blog: function () {
-				elf('pre').forEach(function (item) {
-					hljs.highlightBlock(item);
-				});
-				
 				elf('#BlogSide').scrollFollow({
 					side: 'right',
 					sideOffset: 0,
@@ -24,7 +20,7 @@ var site = {
 			},
 			
 			list: function () {
-				elf('#BlogList>li>h2').on('click', function (ev) {
+				elf('#BlogList>.blog-item>h2').on('click', function (ev) {
 					var target = ev.target,
 						item = elf(target).parent();
 					if (target.nodeName != 'A' && item.attr('data-loaded') != 1) {
@@ -44,10 +40,6 @@ var site = {
 			},
 			
 			docs: function () {
-				elf('pre').forEach(function (item) {
-					hljs.highlightBlock(item);
-				});
-				
 				var toc = elf().g('markdown-toc');
 				var scrollDelay = toc ? 800 : 0;
 				if (toc) {
@@ -83,6 +75,29 @@ var site = {
 					elf().toggleClass(this, 'doc-collapse-menu');
 					ev.preventDefault();
 					return false;
+				});
+			},
+			
+			demo: function () {
+				elf('#box').html('Hello world!').css({
+					textAlign: 'center'
+				}).tween({
+					property: {fontSize: {to: 200, unit: '%'}}
+				}).on('click', function (ev) {
+					elf('#box').tween({
+						property: {width: {from: 100, to: 40, unit: '%'}},
+						oncomplete: function () {
+							elf('#source').css({
+								display: 'block',
+								opacity: 0
+							}).tween({
+								property: {
+									opacity: {to: 1},
+									width: {to: 60, unit: '%'}
+								}
+							});
+						}
+					});
 				});
 			}
 		}
@@ -204,6 +219,10 @@ elf(function () {
 			}
 		});
 	}
+	
+	elf('pre').forEach(function (item) {
+		hljs.highlightBlock(item);
+	});
 	
 	var module = elf().g('MainPage').className.replace(/page-type-/g, '').split(' ');
 	module.forEach(function (item) {

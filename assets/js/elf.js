@@ -1,8 +1,8 @@
 /*!
- * Build by elf JavaScript library builder @1328573708 * http://elfjs.com/
+ * Build by elf JavaScript library builder @1330562923 * http://elfjs.com/
  */
 (function (host, undefined) {
-	function u3b5e282 (target, source) {
+	function b6c4bc85 (target, source) {
 		for (var i in source)
 			if (source.hasOwnProperty(i))
 				target[i] = source[i];
@@ -2089,16 +2089,21 @@ js_$_dom_$_Traversal_$_up = function (element, fn, thisp) {
 
 
 /**
- * 获取元素的位置
- * @method js_$_dom_$_BoxModel.getPosition
- * @static
- * 
- * @param {Element} el
- * @param {Element} refer 相对的元素，如不传入则只计算相对父级节点的位置
- * 
- * @return {Object} 返回包含位置坐标x, y属性的对象
+ * @class js_$_dom_$_BoxModel
+ * DOM元素盒子模型类
+ * @singleton
  */
 js_$_dom_$_BoxModel = {
+	/**
+	 * 获取元素的位置
+	 * @method js_$_dom_$_BoxModel.getPosition
+	 * @static
+	 * 
+	 * @param {Element} el
+	 * @param {Element} refer 相对的元素，如不传入则只计算相对父级节点的位置
+	 * 
+	 * @return {Object} 返回包含位置坐标x, y属性的对象
+	 */
 	getPosition: function (el, refer) {
 		var pos = {x: 0, y: 0};
 		
@@ -2139,7 +2144,7 @@ js_$_dom_$_BoxModel = {
 	
 	/**
 	 * 向上遍历获取一个元素的绝对可见状态
-	 * @method js_$_dom_$_Stage.isDisplaying
+	 * @method js_$_dom_$_BoxModel.isDisplaying
 	 * @static
 	 * 
 	 * @param {Element} element 要获取的元素
@@ -3215,7 +3220,7 @@ js_$_dom_$_Drag = {
 			elem.style.left = cur.x + 'px';
 			elem.style.top = cur.y + 'px';
 			
-			option.onDrag && option.onDrag(x, y);
+			option.ondrag && option.ondrag(x, y);
 			
 			ev.preventDefault();
 		};
@@ -4167,7 +4172,7 @@ js_$_dom_$_MouseTracker = (function () {
 			var dragging = js_$_dom_$_MouseTracker.dragging;
 			for (var i in dragging) {
 				var option = dragging[i];
-				option.onDrag && option.onDrag(ev);
+				option.ondrag && option.ondrag(ev);
 			}
 		},
 		
@@ -4175,18 +4180,18 @@ js_$_dom_$_MouseTracker = (function () {
 		 * 启动追踪
 		 * @method js_$_dom_$_MouseTracker.start
 		 * 
-		 * @param {Function} onDrag
+		 * @param {Function} ondrag 检测到拖动时要做的处理
 		 * 
 		 * @return {String} 返回当前追踪的id，用于停止追踪
 		 */
-		start: function(onDrag){
+		start: function(ondrag){
 			var id = js_$_util_$_Global_$_guid();
 			if (this.noDragging()) {
 				js_$_dom_$_Event.add(document, 'mousemove', this.move);
 			}
 			
 			this.dragging[id] = {
-				onDrag: onDrag,
+				ondrag: ondrag,
 				startX: this.x,
 				startY: this.y
 			};
@@ -5854,11 +5859,11 @@ js_$_transition_$_Timeline = js_$_transition_$_Timeline || js_$_util_$_Class.cre
 	 * 构造函数
 	 * @param {Object} option 参数表见Timeline.start
 	 */
-	constructor: function (config) {
+	constructor: function (options) {
 		var Class = js_$_util_$_Class;
 		
-		Class.mix(this, config);
-		Class.mix(this, this.constructor.config);
+		Class.mix(this, options);
+		Class.mix(this, this.constructoConfigig);
 		
 		//定时执行句柄
 		this.interval = null;
@@ -5877,20 +5882,20 @@ js_$_transition_$_Timeline = js_$_transition_$_Timeline || js_$_util_$_Class.cre
 		 * @ignore
 		 * @param {Number} percent
 		 */
-		this._onEnterFrame = function (percent) {
+		this._onenterframe = function (percent) {
 	//		Debug.out(me.object.className + ':' + me.interval + '>' + percent);
 			me.percent = percent;
-			me.onEnterFrame && me.onEnterFrame(percent);
+			me.onenterframe && me.onenterframe(percent);
 		};
 		
 		/**
 		 * @ignore
 		 */
-		this._onComplete = function () {
+		this._oncomplete = function () {
 	//		Debug.out(me.object.className + ':Complete');
 			me.percent = 1;
 			me.running = false;
-			me.onComplete && me.onComplete();
+			me.oncomplete && me.oncomplete();
 		};
 	},
 	
@@ -5925,10 +5930,10 @@ js_$_transition_$_Timeline = js_$_transition_$_Timeline || js_$_util_$_Class.cre
 			offset: this.offset,
 			direction: this.direction,
 			loop: this.loop,
-			onStart: this.onStart,
-			onFirstFrame: this.onFirstFrame,
-			onEnterFrame: this._onEnterFrame,
-			onComplete: this._onComplete
+			onstart: this.onstart,
+			onfirstframe: this.onfirstframe,
+			onenterframe: this._onenterframe,
+			oncomplete: this._oncomplete
 		});
 	},
 	
@@ -6019,10 +6024,10 @@ js_$_util_$_Class.copy({
 	
 	/**
 	 * @ignore
-	 * @property js_$_transition_$_Timeline.config 默认配置参数
+	 * @property js_$_transition_$_Timeline.Config 默认配置参数
 	 * @type {Object}
 	 */
-	config: {
+	Config: {
 		/**
 		 * @cfg {Number} fps 每秒运行的帧数，默认：50。
 		 */
@@ -6049,16 +6054,16 @@ js_$_util_$_Class.copy({
 		loop: 1
 		
 		/**
-		 * @cfg {Function} onStart 形变启动时调用的外部接口。默认：undefined。
+		 * @cfg {Function} onstart 形变启动时调用的外部接口。如果接口函数返回结果是false，则阻止后续的动画启动。默认：undefined。
 		 */
 		/**
-		 * @cfg {Function} onFirstFrame 进入第一帧调用的外部接口，与onStart不同的是会经过第一次时间间隔时才调用。默认：undefined。
+		 * @cfg {Function} onfirstframe 进入第一帧调用的外部接口，与onstart不同的是会经过第一次时间间隔时才调用。默认：undefined。
 		 */
 		/**
-		 * @cfg {Function} onEnterFrame 每帧调用的外部接口。默认：undefined。
+		 * @cfg {Function} onenterframe 每帧调用的外部接口。默认：undefined。
 		 */
 		/**
-		 * @cfg {Function} onComplete 变化完成时调用的外部接口。默认：undefined。
+		 * @cfg {Function} oncomplete 变化完成时调用的外部接口。默认：undefined。
 		 */
 	},
 	
@@ -6093,7 +6098,7 @@ js_$_util_$_Class.copy({
 	 */
 	prepare: function (option) {
 		var Class = js_$_util_$_Class;
-		Class.mix(option, this.config);
+		Class.mix(option, this.Config);
 		Class.mix(option, {
 			//记录即将开始的定时器的id
 			id: this.getNextTimer(),
@@ -6121,13 +6126,12 @@ js_$_util_$_Class.copy({
 	 * @return {Number} interval，返回定时执行的句柄，可供停止渐变调用
 	 */
 	start: function (option) {
-		var option = this.prepare(option),
-			run = window.setInterval(this.run.bind(this), 1 / option.fps * 1000, option);
-		
-		this.running[run] = true;
-		
-		if (typeof option.onStart == 'function') {
-			option.onStart();
+		var opt, run;
+		if (typeof option.onstart != 'function' || (run = option.onstart()) !== false) {
+			opt = this.prepare(option);
+			run = window.setInterval(this.run.bind(this), 1 / option.fps * 1000, opt);
+			
+			this.running[run] = true;
 		}
 		
 		return run;
@@ -6138,30 +6142,30 @@ js_$_util_$_Class.copy({
 	 * @method js_$_transition_$_Timeline.run
 	 * @private
 	 * 
-	 * @param {Object} option @see js_$_transition_$_Timeline.config
+	 * @param {Object} option @see js_$_transition_$_Timeline.Config
 	 * 
 	 * @return {Number}
 	 */
 	run: function (option) {
 		option.spend = (Date.now() - option.startTime + option.offset) * option.speed;
 		
-		if (!option.frame++ && typeof option.onFirstFrame == 'function') {
-			option.onFirstFrame();
+		if (!option.frame++ && typeof option.onfirstframe == 'function') {
+			option.onfirstframe();
 		}
 		
 		if (option.spend < option.period) {
-			if (typeof option.onEnterFrame == 'function') {
-				option.onEnterFrame(option.spend);
+			if (typeof option.onenterframe == 'function') {
+				option.onenterframe(option.spend);
 			}
 		} else {
 			this.stop(option.id);
 			
-			if (typeof option.onEnterFrame == 'function') {
-				option.onEnterFrame(option.period);
+			if (typeof option.onenterframe == 'function') {
+				option.onenterframe(option.period);
 			}
 			
-			if (typeof option.onComplete == 'function') {
-				option.onComplete();
+			if (typeof option.oncomplete == 'function') {
+				option.oncomplete();
 			}
 		}
 	},
@@ -6172,14 +6176,14 @@ js_$_util_$_Class.copy({
 	 * @static
 	 * 
 	 * @param {Array} queue 由补间参数option组成的数组
-	 * @param {Function} onComplete 所有动画结束时的回调函数
+	 * @param {Function} oncomplete 所有动画结束时的回调函数
 	 */
-	order: function (queue, onComplete) {
+	order: function (queue, oncomplete) {
 		var i = queue.length - 1, me = this;
-		queue[i].onComplete = onComplete;
+		queue[i].oncomplete = oncomplete;
 		for (i--; i >= 0; i--) {
 			queue[i].next = queue[i + 1];
-			queue[i].onComplete = function(){
+			queue[i].oncomplete = function(){
 				me.start(this.next);
 			};
 		}
@@ -6328,7 +6332,7 @@ js_$_util_$_Class.copy({
 	prepare: function (option) {
 		var Tween = js_$_dom_$_Tween,
 			Style = js_$_dom_$_Style,
-			option = js_$_transition_$_Timeline.prepare(option);
+			option = js_$_transition_$_Timeline.prepare.call(Tween, option);
 		
 		//预处理属性列表
 		for (var prop in option.property) {
@@ -6336,7 +6340,7 @@ js_$_util_$_Class.copy({
 			
 			//默认无缓动，即线性运动
 			if (typeof p.ease != 'function') {
-				p.ease = Tween.config.ease;
+				p.ease = Tween.Config.ease;
 			}
 			
 			//默认没有单位
@@ -6359,7 +6363,7 @@ js_$_util_$_Class.copy({
 			}
 		}
 		
-		option.onEnterFrame = Tween.createOnEnterFrameProcessor(option);
+		option.onenterframe = Tween.createOnEnterFrameProcessor(option);
 		
 		return option;
 	},
@@ -6369,7 +6373,7 @@ js_$_util_$_Class.copy({
 	 * @param {Object} option
 	 */
 	createOnEnterFrameProcessor: function (option) {
-		var temp = option.onEnterFrame;
+		var temp = option.onenterframe;
 		return function (spendTime) {
 			var Style = js_$_dom_$_Style,
 				Tween = js_$_dom_$_Tween,
@@ -6387,10 +6391,10 @@ js_$_util_$_Class.copy({
 	}
 }, js_$_dom_$_Tween);
 
-js_$_dom_$_Tween.config = js_$_util_$_Class.mix({
+js_$_dom_$_Tween.Config = js_$_util_$_Class.mix({
 	duration: 500,
 	ease: js_$_transition_$_Easing_$_linear
-}, js_$_transition_$_Timeline.config);
+}, js_$_transition_$_Timeline.Config);
 
 
 
@@ -6403,65 +6407,50 @@ js_$_dom_$_Tween.config = js_$_util_$_Class.mix({
 /**
  * @class js_$_dom_$_Node
  */
-
-/**
- * 开始动画
- * @method transform
- * @param {Object} options 动画参数
- * 
- * @return {js_$_dom_$_Node} 返回自身引用以供链式调用
- */
-/**
- * 停止动画
- * @method rest
- * 
- * @return {js_$_dom_$_Node} 返回自身引用以供链式调用
- */
 js_$_dom_$_INodeTween = js_$_dom_$_INodeTween || {
-	transform: function (options) {
+	/**
+	 * 开始动画
+	 * @method tween
+	 * @param {Object} options 动画参数
+	 * 
+	 * @return {js_$_dom_$_Node} 返回自身引用以供链式调用
+	 */
+	tween: function (options) {
 		var transStamp = js_$_util_$_Global_$__STAMP + '_transformer';
 		if (!this[transStamp]) {
 			this[transStamp] = {};
 		}
-		if (!this._transformStartIterator) {
-			this._transformStartIterator = this._getTransformStartIterator();
-		}
-		this.forEach(this._transformStartIterator);
-		return this;
-	},
-	/**
-	 * @private
-	 */
-	_getTransformStartIterator: function (options) {
-		var me = this;
-		return function (element) {
+		
+		this.forEach(function (element) {
 			var transStamp = js_$_util_$_Global_$__STAMP + '_transformer';
-			var transSet = me[transStamp];
-			transSet[js_$_dom_$_Stage_$_mark(element)] = js_$_dom_$_Tween.start(js_$_util_$_Class.mix({
+			var transSet = this[transStamp];
+			var marker = js_$_dom_$_Stage_$_mark(element);
+			if (!transSet[marker]) {
+				transSet[marker] = [];
+			}
+			transSet[marker].push(js_$_dom_$_Tween.start(js_$_util_$_Class.mix({
 				object: element
-			}, options));
-		};
+			}, options)));
+		});
+		
+		return this;
 	},
 	
-	rest: function () {
-		if (!this._transformStopIterator) {
-			this._transformStopIterator = this._getTransformStopIterator();
-		}
-		this.forEach(this._transformStartIterator);
-		return this;
-	},
 	/**
-	 * @private
+	 * 停止动画
+	 * @method rest
+	 * 
+	 * @return {js_$_dom_$_Node} 返回自身引用以供链式调用
 	 */
-	_getTransformStopIterator: function () {
-		var me = this;
-		return function (element) {
+	rest: function () {
+		this.forEach(function (element) {
 			var transStamp = js_$_util_$_Global_$__STAMP + '_transformer';
-			var transSet = me[transStamp];
-			var marker = js_$_dom_$_Stage_$_mark(element);
-			js_$_dom_$_Tween.stop(transSet[marker]);
-			delete transSet[marker];
-		};
+			var transSet = this[transStamp];
+			var marker = js_$_dom_$_Stage_$_mark(element) || [];
+			transSet[marker].forEach(js_$_dom_$_Tween.stop);
+		});
+		
+		return this;
 	}
 };
 
@@ -9269,27 +9258,6 @@ js_$_util_$_Shortcut.use(elf, {
 
 //elf().IE = js_$_client_$_Browser.IE;
 
-/*
- * elf JavaScript Library
- * 
- * create:
- * @2010-12-19 by mytharcher
- * 
- * update:
- */
-
-
-
-
-js_$_util_$_Shortcut.use(elf, {
-	namespace: js_$_util_$_Namespace.get,
-	using: js_$_util_$_Namespace.using
-});
-
-
-
-//elf().namespace = js_$_util_$_Namespace.get;
-
 
 
 //elf().Opera = js_$_client_$_Browser.Opera;
@@ -9297,25 +9265,6 @@ js_$_util_$_Shortcut.use(elf, {
 
 
 //elf().Safari = js_$_client_$_Browser.Safari;
-
-/*
- * elf JavaScript Library
- * 
- * create:
- * @2010-02-13 by mytharcher
- * 
- * update:
- */
-
-
-
-js_$_util_$_Shortcut.use(elf, {
-	format: js_$_text_$_Template.format
-});
-
-
-
-//elf().template = js_$_text_$_Template.format;
 
 /*
  * elf JavaScript Library
@@ -9651,6 +9600,27 @@ js_$_util_$_Shortcut.use(elf, {typeOf: js_$_util_$_Type.of});
 
 //elf().mix = js_$_util_$_Class.mix;
 
+/*
+ * elf JavaScript Library
+ * 
+ * create:
+ * @2010-12-19 by mytharcher
+ * 
+ * update:
+ */
+
+
+
+
+js_$_util_$_Shortcut.use(elf, {
+	namespace: js_$_util_$_Namespace.get,
+	using: js_$_util_$_Namespace.using
+});
+
+
+
+//elf().namespace = js_$_util_$_Namespace.get;
+
 
 
 //elf().noop = js_$_util_$_Global_$_noop;
@@ -9683,6 +9653,25 @@ js_$_util_$_Shortcut.use(elf, {typeOf: js_$_util_$_Type.of});
 
 //elf().stamp = js_$_util_$_Global_$_stamp;
 
+/*
+ * elf JavaScript Library
+ * 
+ * create:
+ * @2010-02-13 by mytharcher
+ * 
+ * update:
+ */
+
+
+
+js_$_util_$_Shortcut.use(elf, {
+	template: js_$_text_$_Template.format
+});
+
+
+
+//elf().template = js_$_text_$_Template.format;
+
 
 
 //elf().toArray = js_$_util_$_XArray.toArray;
@@ -9694,6 +9683,11 @@ js_$_util_$_Shortcut.use(elf, {typeOf: js_$_util_$_Type.of});
 
 
 //elf().toggleClass = js_$_dom_$_ClassName.toggle;
+
+
+
+//elf().tween = js_$_dom_$_Tween.start;
+
 
 
 
@@ -9790,27 +9784,6 @@ js_$_util_$_Shortcut.intercept(elf, js_$_util_$_Type.FUNCTION, js_$_dom_$_Stage_
  * elf JavaScript Library
  * 
  * create: 
- * @2012-01-19 by mytharcher
- * 
- * update:
- */
-
-
-
-/**
- * @class js_$_util_$_Shortcut
- */
-
-/**
- * @ignore
- * 给快捷处理添加元素处理方式
- */
-js_$_util_$_Shortcut.intercept(elf, js_$_util_$_Type.OBJECT, js_$_dom_$_Node);
-
-/*
- * elf JavaScript Library
- * 
- * create: 
  * @2010-12-10 by mytharcher
  * 
  * update:
@@ -9852,6 +9825,6 @@ js_$_util_$_Shortcut.intercept(elf, js_$_util_$_Type.WINDOW, js_$_dom_$_Node);
 
 	var packages = {js:{"client":{"Browser":js_$_client_$_Browser,"Features":{"scriptEval":js_$_client_$_Features_$_scriptEval}},"dom":{"Attribute":js_$_dom_$_Attribute,"BoxModel":js_$_dom_$_BoxModel,"ClassName":js_$_dom_$_ClassName,"Cookie":js_$_dom_$_Cookie,"Drag":js_$_dom_$_Drag,"Event":js_$_dom_$_Event,"INodeAttribute":js_$_dom_$_INodeAttribute,"INodeBoxModel":js_$_dom_$_INodeBoxModel,"INodeClassName":js_$_dom_$_INodeClassName,"INodeEvent":js_$_dom_$_INodeEvent,"INodeOperation":js_$_dom_$_INodeOperation,"INodeRelation":js_$_dom_$_INodeRelation,"INodeStyle":js_$_dom_$_INodeStyle,"INodeTween":js_$_dom_$_INodeTween,"MouseTracker":js_$_dom_$_MouseTracker,"Node":js_$_dom_$_Node,"NodeInterfaceFactory":js_$_dom_$_NodeInterfaceFactory,"Operation":js_$_dom_$_Operation,"Relation":js_$_dom_$_Relation,"Selector":js_$_dom_$_Selector,"Stage":{"evalScript":js_$_dom_$_Stage_$_evalScript,"get":js_$_dom_$_Stage_$_get,"getDocument":js_$_dom_$_Stage_$_getDocument,"getDocumentElement":js_$_dom_$_Stage_$_getDocumentElement,"getNextHighestDepth":js_$_dom_$_Stage_$_getNextHighestDepth,"loadScript":js_$_dom_$_Stage_$_loadScript,"loadStyle":js_$_dom_$_Stage_$_loadStyle,"mark":js_$_dom_$_Stage_$_mark,"ready":js_$_dom_$_Stage_$_ready},"Style":js_$_dom_$_Style,"Traversal":{"bfs":js_$_dom_$_Traversal_$_bfs,"dfs":js_$_dom_$_Traversal_$_dfs,"up":js_$_dom_$_Traversal_$_up},"Tween":js_$_dom_$_Tween},"net":{"Ajax":js_$_net_$_Ajax,"URL":js_$_net_$_URL,"URLParameter":js_$_net_$_URLParameter},"text":{"Encoder":{"encodeHTML":js_$_text_$_Encoder_$_encodeHTML},"Escaper":{"escapeQuote":js_$_text_$_Escaper_$_escapeQuote,"escapeReg":js_$_text_$_Escaper_$_escapeReg},"Formatter":js_$_text_$_Formatter,"JSONParserFactory":js_$_text_$_JSONParserFactory,"Template":js_$_text_$_Template,"WordString":js_$_text_$_WordString},"transition":{"Easing":{"cos":js_$_transition_$_Easing_$_cos,"linear":js_$_transition_$_Easing_$_linear,"quadIn":js_$_transition_$_Easing_$_quadIn,"quadInAndOut":js_$_transition_$_Easing_$_quadInAndOut,"quadOut":js_$_transition_$_Easing_$_quadOut,"sin":js_$_transition_$_Easing_$_sin},"Timeline":js_$_transition_$_Timeline},"util":{"Class":js_$_util_$_Class,"EventDispatcher":js_$_util_$_EventDispatcher,"EventObject":js_$_util_$_EventObject,"Global":{"_STAMP":js_$_util_$_Global_$__STAMP,"getGlobal":js_$_util_$_Global_$_getGlobal,"guid":js_$_util_$_Global_$_guid,"noop":js_$_util_$_Global_$_noop,"stamp":js_$_util_$_Global_$_stamp},"Hash":js_$_util_$_Hash,"IEventDispatcher":js_$_util_$_IEventDispatcher,"InterfaceFactory":js_$_util_$_InterfaceFactory,"Namespace":js_$_util_$_Namespace,"Processor":js_$_util_$_Processor,"Set":js_$_util_$_Set,"Shortcut":js_$_util_$_Shortcut,"Type":js_$_util_$_Type,"XArray":js_$_util_$_XArray}},elf:elf};
 	host['js'] = packages['js'];
-	u3b5e282(packages['elf'], packages['js']);
+	b6c4bc85(packages['elf'], packages['js']);
 	host['elf'] = packages['elf'];
 })(this);

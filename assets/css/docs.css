@@ -60,7 +60,7 @@
 .page-type-blog .blog-meta .author img{vertical-align:top; border:1px solid #ccc; border-radius:3px; padding:1px; margin-right:2px;}
 .page-type-blog .blog-permalink{font:italic 85%/1.6em Arial, Helvetica, sans-serif; color:#999;}
 
-.blog-item{list-style:none; margin-bottom:2em;}
+.blog-item{margin-bottom:2em;}
 .blog-item .blog-meta{margin-top:1em; font-size:75%;}
 .blog-item .blog-meta:last-child{margin-bottom:0;}
 

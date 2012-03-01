@@ -79,6 +79,7 @@ input,textarea{padding:0; resize:none;}
 #Header .layout-aside li.current a{background:#999; color:#fff; text-shadow:none;}
 
 #MainBody{margin:10px 0;}
+#MainBody:after{display:block; clear:both; content:'.'; height:0; overflow:hidden; visibility:hidden;}
 
 #Footer{color:#aaa; font-size:75%; line-height:1.6em;}
 

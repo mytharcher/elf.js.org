@@ -42,7 +42,24 @@ modules:
 release:
     latest: &latest_release
         current:  true
-        version:  0.3.2
+        version:  0.3.3
+        date:     2012-03-01
+        note:     /blog/posts/0.3.3-release-note.html
+        file:
+            src:
+                size: 216
+                sha1: d9a1ccc525ff16fd96939fd511e8fb2979afd585
+            min:
+                size: 48
+                sha1: 9b065978f133b3a05dd3b5acc6deaf0b8e96d626
+            gzip:
+                size: 16
+                sha1: 2e8020f5b93e5fc158e077299e3c333c356d9b68
+
+    history:
+      - *latest_release
+
+      - version:  0.3.2
         date:     2012-02-12
         note:     /blog/posts/0.3.2-release-note.html
         file:
@@ -55,9 +72,6 @@ release:
             gzip:
                 size: 16
                 sha1: 4903e4f5e87066fec576c6923cdb198d7aa040fe
-
-    history:
-      - *latest_release
 
       - version:  0.3.1
         date:     2011-12-27

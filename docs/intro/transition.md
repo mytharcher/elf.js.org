@@ -28,32 +28,32 @@ loop | Number | 循环次数，> 0：循环loop次；0：停止；< 0：无限�
 offset | Number | 起始时间偏移量的毫秒数，默认：0。
 property | Object | 动画需要改变的属性对象，其中包含from（初始值）、to（目标值）、unit（单位）和ease（单独的缓动函数）。
 speed | Number | 倍速，倍率。用于调节时间快慢的系数，一般不设置。默认：1。
-onComplete | Function | 变化完成时调用的外部接口。默认：undefined。
-onEnterFrame | Function | 每帧调用的外部接口。默认：undefined。
-onFirstFrame | Function | 进入第一帧调用的外部接口，与onStart不同的是会经过第一次时间间隔时才调用。默认：undefined。
-onStart | Function | 形变启动时调用的外部接口。默认：undefined。
+oncomplete | Function | 变化完成时调用的外部接口。默认：undefined。
+onenterframe | Function | 每帧调用的外部接口。默认：undefined。
+onfirstframe | Function | 进入第一帧调用的外部接口，与onstart不同的是会经过第一次时间间隔时才调用。默认：undefined。
+onstart | Function | 形变启动时调用的外部接口。默认：undefined。
 
 其中object为必选参数，用于指定希望对哪个元素进行动画操作。以“on”开头的四个事件函数用于用户自定义动画过程中发生的事件处理方式。
 
 示例：
 :	
-~~~
-js.dom.Tween.start({
-	// 指定动画在id为test的元素上起作用
-	object: document.getElementById('test'),
-	// 动画属性列表
-	property: {
-		// x坐标从100到200像素匀速（默认）运动
-		left: {from: 100, to: 200, unit: 'px'},
-		// y坐标从100到400像素加速运动
-		top: {from: 100, to: 400, unit: 'px', ease: js.transition.Easing.quadIn}
-	},
-	// 每秒帧数25
-	fps: 25,
-	// 循环2次
-	loop: 2
-});
-~~~
+	~~~
+	js.dom.Tween.start({
+		// 指定动画在id为test的元素上起作用
+		object: document.getElementById('test'),
+		// 动画属性列表
+		property: {
+			// x坐标从100到200像素匀速（默认）运动
+			left: {from: 100, to: 200, unit: 'px'},
+			// y坐标从100到400像素加速运动
+			top: {from: 100, to: 400, unit: 'px', ease: js.transition.Easing.quadIn}
+		},
+		// 每秒帧数25
+		fps: 25,
+		// 循环2次
+		loop: 2
+	});
+	~~~
 
 调用以上代码后，如果绝对定位的test元素中有内容，就可以看到这个元素做了两次平抛运动。当然你可以发挥你的想象力做出各种丰富的运动方式和渐变效果，诸如使用sin/cos完成圆周运动等。
 
@@ -61,40 +61,40 @@ js.dom.Tween.start({
 
 上面使用Tween对象上的静态方法完成了最简单的例子，如果需要对动画的过程做更细致的控制，那么可以使用创建实例的方法来完成。
 
-实例：
+示例：
 :	
-~~~
-// 所有参数与静态方法需要的参数一致
-var myTween = new js.dom.Tween({
-	object: document.getElementById('test'),
-	property: {
-		left: {from: 100, to: 200, unit: 'px'},
-		top: {from: 100, to: 400, unit: 'px', ease: js.transition.Easing.quadIn}
-	},
-	fps: 25,
-	loop: 2
-});
-
-// 点击开始按钮的时候启动myTween的动画
-document.getElementById('startButton').onclick = function (ev) {
-	myTween.start();
-};
-
-// 点击暂停按钮的时候暂停myTween动画
-document.getElementById('pauseButton').onclick = function (ev) {
-	myTween.stop();
-};
-
-// 点击恢复按钮的时候继续myTween动画
-document.getElementById('resumeButton').onclick = function (ev) {
-	myTween.resume();
-};
-
-// 点击反向按钮的时候调转myTween动画的执行方向
-document.getElementById('reverseButton').onclick = function (ev) {
-	myTween.reverse();
-};
-~~~
+	~~~
+	// 所有参数与静态方法需要的参数一致
+	var myTween = new js.dom.Tween({
+		object: document.getElementById('test'),
+		property: {
+			left: {from: 100, to: 200, unit: 'px'},
+			top: {from: 100, to: 400, unit: 'px', ease: js.transition.Easing.quadIn}
+		},
+		fps: 25,
+		loop: 2
+	});
+	
+	// 点击开始按钮的时候启动myTween的动画
+	document.getElementById('startButton').onclick = function (ev) {
+		myTween.start();
+	};
+	
+	// 点击暂停按钮的时候暂停myTween动画
+	document.getElementById('pauseButton').onclick = function (ev) {
+		myTween.stop();
+	};
+	
+	// 点击恢复按钮的时候继续myTween动画
+	document.getElementById('resumeButton').onclick = function (ev) {
+		myTween.resume();
+	};
+	
+	// 点击反向按钮的时候调转myTween动画的执行方向
+	document.getElementById('reverseButton').onclick = function (ev) {
+		myTween.reverse();
+	};
+	~~~
 
 这样定义的动画就可以在有用户交互的时候自由控制，而不是简单的一跑到底。还有一些没有在例子里列出来的实例方法，可以在`js.dom.Tween`类的API文档中查到。
 
@@ -105,7 +105,7 @@ document.getElementById('reverseButton').onclick = function (ev) {
 	var GRAVITY = 9.8; // 设置重力加速度
 	var ball = {speed: 0, height: 100}; // 设置自由落体小球的初速度和起始高度
 	var dropping = new js.transition.Timeline({
-		onEnterFrame: function (spend) {
+		onenterframe: function (spend) {
 			var time = spend / 1000;
 			ball.speed = GRAVITY * time;
 			var s = ball.speed * time / 2;
