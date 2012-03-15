@@ -104,7 +104,7 @@ input,textarea{padding:0; resize:none;}
 /* blog page */
 .page-type-blog .search-box{margin-bottom:1em;}
 .page-type-blog .search-box input{width:160px;}
-.blog-feed{margin:1em 0;}
+.blog-feed{margin:1em 0; font-size:12px;}
 .rss-link{padding-right:20px; background:url(img/icon-feed.gif) no-repeat right;}
 
 /* search page */

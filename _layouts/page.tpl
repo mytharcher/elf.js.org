@@ -42,7 +42,7 @@
 <script src="/assets/js/site.js"></script>
 {% for script in page.scripts %}<script src="{{ script }}"></script>
 {% endfor %}
-<!--
+
 <div style="display:none">
 <script type="text/javascript">
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
@@ -60,6 +60,6 @@ _gaq.push(['_trackPageview']);
 })();
 </script>
 </div>
--->
+
 </body>
 </html>
