@@ -11,7 +11,7 @@ pageClass:  page-type-content page-type-docs
 	</div>
 </div>
 <div class="doc-main" title="双击隐藏/展开目录">
-	<!--<form class="doc-search"><input type="search" name="keyword" placeholder="输入关键词按回车搜索" /></form>-->
+	{% include search-box.tpl %}
 	<div id="DocContent" class="doc-content">
 		<h1>{{ page.title }}</h1>
 		{{ content }}

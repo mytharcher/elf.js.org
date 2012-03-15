@@ -9,8 +9,6 @@ styles:
 trace: 博客 - Blog
 ---
 
-<div id="BlogSide" class="layout-content-side">
-	{% include blog/nav.tpl %}
-</div>
+{% include blog/side.tpl %}
 
 {{ content }}

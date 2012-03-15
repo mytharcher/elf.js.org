@@ -78,7 +78,13 @@ input,textarea{padding:0; resize:none;}
 #Header .layout-aside li a:hover{color:#06c; background:#fff; text-decoration:none; box-shadow:0 1px 3px #ccc}
 #Header .layout-aside li.current a{background:#999; color:#fff; text-shadow:none;}
 
-#MainBody{margin:10px 0;}
+.search-box input{width:200px; height:22px; border:1px solid #d9d9d9; border-radius:3px; padding:2px; font:14px Helvetica, Arial, sans-serif; color:#ccc;}
+.search-box input:hover{border:1px solid #a0a0a0; box-shadow:inset 0 1px 2px rgba(0,0,0,0.1);}
+.search-box input:focus{border:1px solid #4d9efe; box-shadow:inset 0 1px 2px rgba(0,0,0,0.1); color:#555;}
+.search-box button{width:2em; height:22px; overflow:hidden; padding:0; border:1px solid #4d9efe; background:#4d9efe; color:#fff; font-weight:bold; text-shadow:none;}
+.search-box button:hover{border:1px solid #48e;}
+
+#MainBody{min-height:200px; margin:10px 0;}
 #MainBody:after{display:block; clear:both; content:'.'; height:0; overflow:hidden; visibility:hidden;}
 
 #Footer{color:#aaa; font-size:75%; line-height:1.6em;}
@@ -91,3 +97,21 @@ input,textarea{padding:0; resize:none;}
 .page-type-content #Header .additional .sub-path{font-size:85%; line-height:1em;}
 
 .page-type-content #MainBody{position:relative; zoom:1; margin:10px 0 30px 0; padding:20px; border-radius:5px; box-shadow:0 2px 6px #ccc; background:#fff; font:medium/1.5em Arial, Helvetica, sans-serif;}
+
+/* doc page */
+.page-type-docs .search-box{float:right;}
+
+/* blog page */
+.page-type-blog .search-box{margin-bottom:1em;}
+.page-type-blog .search-box input{width:160px;}
+.blog-feed{margin:1em 0;}
+.rss-link{padding-right:20px; background:url(img/icon-feed.gif) no-repeat right;}
+
+/* search page */
+.page-type-search h1{padding:0.4em 0.4em 0 0.4em;}
+#cse *{box-sizing:content-box; -webkit-box-sizing:content-box; -moz-box-sizing:content-box;}
+#cse a{margin:0;}
+#cse .gsc-result .gs-title{height:auto;}
+#cse .gsc-input-box{border-radius:3px;}
+#cse .gsc-search-button{margin-top:4px;}
+#cse .gcsc-branding-clickable{padding:0; background:none;}

@@ -7,9 +7,7 @@ traceHTML: |
     / <a href="/blog/">博客</a> <span class="sub-path">/ 查看文章</span>
 ---
 
-<div id="BlogSide" class="layout-content-side">
-	{% include blog/nav.tpl %}
-</div>
+{% include blog/side.tpl %}
 
 <div id="BlogMain" class="layout-content-main">
 	<div id="BlogContent" class="doc-content">

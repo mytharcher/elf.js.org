@@ -22,7 +22,7 @@
 .doc-search{position:absolute; right:0;}
 
 .doc-content{font-size:90%;}
-.doc-content>h1:first-child{margin-top:0.1em; padding-bottom:0.5em; border-bottom:1px solid #aaa;}
+.doc-content>h1:first-child{margin-top:0.1em; padding-bottom:0.5em; border-bottom:1px solid #bbb;}
 .doc-content h1,
 .doc-content h2,
 .doc-content h3,

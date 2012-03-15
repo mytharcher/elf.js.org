@@ -4,9 +4,9 @@ var site = {
 	common: {
 		InitMap: {
 			home: function () {
-		    	elf('#Preview input[type=radio]').on('click', function (ev) {
-		    		elf().g('DownloadButton').setAttribute('href', this.value);
-		    	});
+				elf('#Preview input[type=radio]').on('click', function (ev) {
+					elf().g('DownloadButton').setAttribute('href', this.value);
+				});
 			},
 			
 			blog: function () {
@@ -78,6 +78,32 @@ var site = {
 				});
 			},
 			
+			search: function () {
+				js.dom.Stage.loadScript('http://www.google.com/jsapi', {
+					onLoad: function () {
+						google.load('search', '1', {
+							language: 'zh-CN',
+							style: google.loader.themes.V2_DEFAULT,
+							callback: function() {
+								var customSearchControl = new google.search.CustomSearchControl('000346898720731947188:hhdkdilmh1o', {});
+								customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+								
+								var options = new google.search.DrawOptions();
+								options.setAutoComplete(true);
+								customSearchControl.draw('cse', options);
+								
+								var url = new js.net.URL(location);
+								var query = url.getParameter('q');
+								if (query) {
+									document.title = elf().template(site.common.Text.TPL_SEARCH_TITLE, query);
+									customSearchControl.execute(query);
+								}
+							}
+						});
+					}
+				});
+			},
+			
 			demo: function () {
 				elf('#box').html('Hello world!').css({
 					textAlign: 'center'
@@ -100,6 +126,10 @@ var site = {
 					});
 				});
 			}
+		},
+		
+		Text: {
+			TPL_SEARCH_TITLE: 'elf+js: 搜索 / #{0}'
 		}
 	}
 };
