@@ -8,6 +8,9 @@
 <link rel="stylesheet" type="text/css" href="/assets/css/site.css" />
 {% for style in page.styles %}<link rel="stylesheet" type="text/css" href="{{ style }}" />
 {% endfor %}
+{% if page.feed %}
+<link href="page.feed" rel="alternate" title="elf+js Blog" type="application/atom+xml" />
+{% endif %}
 </head>
 
 <body>
