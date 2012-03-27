@@ -68,10 +68,10 @@ input,textarea{padding:0; resize:none;}
 
 #Header{position:relative; zoom:1;}
 #Header .logo{position:relative; zoom:1;}
-#Header .additional{position:absolute; left:105px; bottom:5px; font-family:"Microsoft YaHei", "微软雅黑", "宋体", Arial;}
+#Header .additional{position:absolute; left:105px; bottom:5px;}
 
 #Header .layout-aside{position:absolute; top:5px; right:0;}
-#Header .layout-aside li{float:left; list-style:none; padding:0 5px; border-left:1px solid #fff; border-right:1px solid #999; font:14px/1.2em "Microsoft YaHei", "微软雅黑", "宋体", Arial; text-shadow:1px 1px 1px #fff;}
+#Header .layout-aside li{float:left; list-style:none; line-height:1.2em; padding:0 5px; border-left:1px solid #fff; border-right:1px solid #999; font-size:85%; text-shadow:1px 1px 1px #fff;}
 #Header .layout-aside li:first-child{border-left:none;}
 #Header .layout-aside li:last-child{border-right:none;}
 #Header .layout-aside li a{display:inline-block; padding:1px 6px; border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; color:#666;}

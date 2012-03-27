@@ -13,7 +13,7 @@
 #Preview .layout-section .layout-content{margin:30px 75px 0 75px;}
 #Preview .layout-section p{margin:.3em 0 .7em 0; text-shadow:1px 1px 1px #fff;}
 #Preview .layout-section p.minor{color:#aaa;}
-#Preview .layout-section p.content{font:28px/1.4em "Microsoft YaHei", "微软雅黑", "宋体", Arail;}
+#Preview .layout-section p.content{font:28px/1.4em "Microsoft YaHei", "黑体", "宋体", Arail;}
 #Preview .layout-section p.support{text-align:right;}
 #Preview .layout-section p.support label{font-size:small;}
 #Preview .layout-section p.support img{opacity:.5; filter:alpha(opacity=50); vertical-align:bottom;
