@@ -55,6 +55,14 @@ release:
             gzip:
                 size: 16
                 sha1: 417ef8d904f5eadfa68765e9b546709c16b74c66
+        extract: |
+            此版本增加了一些兼容性事件的支持，并修复一些问题。
+        changes: |
+            * 增加功能[#2](https://github.com/elfjs/jslib/issue/2)：添加`js.dom.Event`对`onmouseenter`和`onmouseleave`事件的兼容支持；
+            * 增加功能[#7](https://github.com/elfjs/jslib/issue/7)：添加`js.dom.Event.once`方法，支持绑定只执行一次的事件；
+            * 将原`js.dom.Event`类拆散为各方法独立文件，以便今后扩展其他兼容事件；
+            * 补充测试用例，以排查样式设置方法中对`textAlign`属性设置的问题[#9](https://github.com/elfjs/jslib/issue/9)；
+            * 修复问题[#10](https://github.com/elfjs/jslib/issue/10)：`js.dom.Stage.loadScript`方法的`onLoad`选项改为`onload`，以保持事件接口统一为小写的规范；
 
     history:
       - *latest_release
@@ -72,6 +80,18 @@ release:
             gzip:
                 size: 16
                 sha1: 2e8020f5b93e5fc158e077299e3c333c356d9b68
+        extract: |
+            对动画和拖动事件函数接口进行了统一化的调整，并修复节点集合集成动画调用一些问题，详见下方的变更记录。
+        changes: |
+            * 修复问题[#3](https://github.com/elfjs/jslib/issue/3)：将所有`js.transition.Timeline`类和`js.dom.Tween`类中的事件名改为小写，以按规范统一；
+            * 增加`js.transition.Timeline`类实例`onstart`接口返回`false`时阻止变化启动的功能；
+            * 修复问题[#4](https://github.com/elfjs/jslib/issue/4)：修改`js.dom.Node`类动画接口`js.dom.INodeTween`中的集合调用实现方式，解决调用出错的问题；
+            * 修复问题[#5](https://github.com/elfjs/jslib/issue/5)：将启动动画的接口修改为`tween()`与`Tween`类名字保持一致；
+            * 增加针对`js.dom.Node`类实例调用`tween()`方法的测试用例，确保方法调用正常；
+            * 修改动画类事件名改为小写的测试用例；
+            * 将`js.dom.Drag`类和`js.dom.MouseTracker`类事件名改为小写；
+            * 修改`elf`中动画类快捷方式调用方法为`tween()`；
+            * 修改`elf`中简单文本模板的调用方式为`template()`；
 
       - version:  0.3.2
         date:     2012-02-12
@@ -86,6 +106,28 @@ release:
             gzip:
                 size: 16
                 sha1: 4903e4f5e87066fec576c6923cdb198d7aa040fe
+        extract: |
+            事件接口函数调整，并修复大量bug，补充部分test case。
+        changes: |
+            * 修改对`js.util.XArray`类的类型判断方式，从使用`js.util.Type`类改为原生判断；
+            * 修复`js.util.XArray`类使用`js.util.Class.create`进行继承错误的问题；
+            * 修复`js.util.XArray`类中无法使用`for in`遍历`prototype`上扩展的原生方法问题；
+            * 将`js.net.Ajax`类所有事件名称改为小写以形成规范；
+            * 将`js.net.Ajax`类的`load()`方法改名为`request()`方法；
+            * 增加`js.dom.Event`新增监听事件时CSS选择器委托方式支持；
+            * 修复`js.dom.Event.remove()`方法在事件过程中移除事件后不继续执行的问题；
+            * 修复`js.util.Global.guid()`方法前缀或后缀为数字0时的错误；
+            * 修复[#1](https://github.com/elfjs/jslib/issue/1)：在`js.dom.BoxModel.getPosition()`方法返回对象中增加`left`和`top`属性；
+            * 修复`js.dom.Selector`类查询完成后没有移除元素对象上的临时标识的问题；
+            * 修复`js.dom.Node`类子级查询方法`query()`出错的问题；
+            * 修复`js.dom.Node`类扩展`css()`方法调用错误的问题；
+            * 修复`js.dom.Node`类扩展`attr()`方法调用错误的问题；
+            * 修复`js.dom.Node`类初始化`null`对象的问题；
+            * 新增`js.dom.ClassName.get()`方法以获取元素classname数组；
+            * 修复拖动类中当鼠标拖动离开文档释放鼠标，再移回文档区域后无法停止拖动的问题；
+            * 修正`js.dom.BoxModel`类注释错误；
+            * 将[qunit](https://github.com/jquery/qunit/)作为子模块添加到测试中；
+            * 整理并补充部分test case；
 
       - version:  0.3.1
         date:     2011-12-27
@@ -100,13 +142,38 @@ release:
             gzip:
                 size: 16
                 sha1: 9a548235d4565a922cddf96a8a1530bf5af010db
-      
+        extract: |
+            上一个版本（[0.3.0](/blog/posts/0.3.0-release-note.html)）发布后发现一些问题，所以在修复后紧急更新了代码和并发布这个新版本0.3.1。
+        changes: |
+            * `js.dom.Node`类`merge`方法`length`属性计算错误；
+            * `js.util.XArray`类修改实现为包装原生数组，以支持IE&lt;8的浏览器；
+            * 移除nightly中未完成的`js.net.Path`类；
+            * 针对IE&lt;8浏览器修复所有`[].slice.call(argument)`缺少第二个索引参数的问题；
+
       - version:  0.3.0
         date:     2011-12-24
         note:     /blog/posts/0.3.0-release-note.html
+        extract: |
+            部分接口再次调整，使之整体风格一致。整合测试用例文件，设计制作项目网站，补充大量文档，启用[elfjs.com](http://elfjs.com/)域名，首次正式发布。
+        changes: |
+            * `js.dom.Attribute`针对一些特殊属性的兼容适应；
+            * 拖动类增加可以直接使一个元素可拖的方法；
+            * 拆分鼠标轨迹类实现作为拖动类底层支持；
+            * 增加DOM事件类型枚举对象；
+            * Node类添加创建一个Node节点的方法；
+            * Node类集合css操作实现bug修复；
+            * Node类增加按索引获取新集合的方法；
+            * Global类拆分为零散函数文件；
+            * `js.util.Class.extend`改名为`js.util.Class.mix`；
+            * `js.util.Class.copy`方法支持使用多个源对象拷贝；
+            * 类继承取消构造函数继承，新的方法如需继承构造函数必须手动指明，否则只创建空函数为构造器，同时取消._super和.superClass对父类的引用；
+            * ready函数拆分线程队列处理类为底层支持；
+            * Ajax类请求失败的接口名修改为onfailure，增加JSON解析失败和重复发送的事件，其他所有事件名都改为小写；
 
       - version:  0.2.0
         date:     2011-06-24
+        extract: |
+            严格保证命名规范，由于大量接口变更，不再向下兼容，所以废弃了上一个0.1.0版本。并增加很多功能，提交到github进行维护，补充部分测试用例，为正式发布做准备。[发布初衷](/blog/?p=1)。
 
 download:
     base: https://elfjs.googlecode.com/files/
