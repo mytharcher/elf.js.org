@@ -19,10 +19,10 @@ modules:
         categories:
           - name:  release
             title: 发布记录
-    
+
           - name:  introduction
             title: 给点解释
-    
+
           - name:  communication
             title: 信访交流
 
@@ -32,10 +32,10 @@ modules:
         categories:
           - name:  intro
             title: 功能介绍
-    
+
           - name:  support
             title: 帮助与支持
-    
+
           - name:  develop
             title: 参与贡献
 
@@ -219,7 +219,7 @@ meta:
         gravatar: 1cd8c12591616d8c22aaa624f8c07834
 
     gravatar:
-        base: http://www.gravatar.com/avatar/
+        base: http://cn.gravatar.com/avatar/
         param: ?s=
 
 testing:
@@ -227,5 +227,5 @@ testing:
       - &test
         name:  测试分类锚点
         title: testanchor
-        
+
       - *test
