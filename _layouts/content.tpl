@@ -10,7 +10,6 @@ scripts:
   - /assets/js/hljs/languages/css.js
   - /assets/js/hljs/languages/xml.js
   - /assets/js/hljs/languages/javascript.js
-  - http://elfjs.disqus.com/embed.js
 
 logoType: -90x30
 ---

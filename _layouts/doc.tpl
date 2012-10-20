@@ -16,5 +16,4 @@ pageClass:  page-type-content page-type-docs
 		<h1>{{ page.title }}</h1>
 		{{ content }}
 	</div>
-	<div id="disqus_thread" class="doc-comments"></div>
 </div>

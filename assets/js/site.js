@@ -19,6 +19,10 @@ var site = {
 				});
 			},
 			
+			post: function () {
+				elf().loadScript('http://elfjs.disqus.com/embed.js', {});
+			},
+			
 			list: function () {
 				elf('#BlogList>.blog-item>h2').on('click', function (ev) {
 					var target = ev.target,
