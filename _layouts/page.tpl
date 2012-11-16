@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <meta name="author" content="{{ page.author }}" />
 <meta name="keywords" content="{{ page.tags | join: ',' }}" />
+<meta name="google-site-verification" content="RylW_eYZwk85sTyPMVT0Rw1yBeplLJEEuL1Z6WDKcq0" />
 <title>elf+js: {% if page.trace %}{{ page.trace }}{% else %}{{ page.title }}{% endif %}</title>
 <link rel="stylesheet" type="text/css" href="/assets/css/site.css" />
 {% for style in page.styles %}<link rel="stylesheet" type="text/css" href="{{ style }}" />
