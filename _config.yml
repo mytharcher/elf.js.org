@@ -42,7 +42,38 @@ modules:
 release:
     latest: &latest_release
         current:  true
-        version:  0.4.0
+        version:  0.4.1
+        date:     2012-12-10
+        note:     /blog/posts/0.4.1-release-note.html
+        file:
+            src:
+                size: 234
+                sha1: fa8c362cca40432b7f24aba0e0dfe7a3697f6707
+            min:
+                size: 51
+                sha1: 7c493d2b57730d706c5ab9e9653f762a438c59a5
+            gzip:
+                size: 16
+                sha1: 2394a79fc33c1f79494a90c58de7be5cf21a5c83
+        extract: |
+            此版本增强了小部分功能，并修复一些问题。
+        changes: |
+            * 添加对鼠标进入和离开事件的特性嗅探；
+            * 添加对`<script>`标签`onerror`和`onload`事件的特性嗅探；
+            * 修正拖拽handler元素id问题；
+            * 将鼠标轨迹跟踪还原为闭包实现，默认添加全局跟踪事件；
+            * 增强`js.dom.Node`类的`filter`方法，支持传入`function`类型的自定义判断方法；
+            * 修正`js.dom.Relation`类的各种获取方法；
+            * 修正`js.dom.Stage.loadScript`的`onload`事件实现；
+            * 将`js.net.Ajax`的`JSON`类型解析改为使用`JSON.parse`方法；
+            * 抽取并优化`js.util.Class.mix`方法；
+            * 增加部分测试用例；
+            * 修复`js.dom.Cookie.clear`方法的Bug；
+
+    history:
+      - *latest_release
+
+      - version:  0.4.0
         date:     2012-04-18
         note:     /blog/posts/0.4.0-release-note.html
         file:
@@ -63,9 +94,6 @@ release:
             * 将原`js.dom.Event`类拆散为各方法独立文件，以便今后扩展其他兼容事件；
             * 补充测试用例，以排查样式设置方法中对`textAlign`属性设置的问题[#9](https://github.com/elfjs/jslib/issue/9)；
             * 修复问题[#10](https://github.com/elfjs/jslib/issue/10)：`js.dom.Stage.loadScript`方法的`onLoad`选项改为`onload`，以保持事件接口统一为小写的规范；
-
-    history:
-      - *latest_release
 
       - version:  0.3.3
         date:     2012-03-01
