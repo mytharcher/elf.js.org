@@ -6,10 +6,7 @@ styles:
   - /assets/css/code/github.css
 
 scripts:
-  - /assets/js/highlight.js
-  - /assets/js/hljs/languages/css.js
-  - /assets/js/hljs/languages/xml.js
-  - /assets/js/hljs/languages/javascript.js
+  - http://yandex.st/highlightjs/7.3/highlight.min.js
 
 logoType: -90x30
 ---
