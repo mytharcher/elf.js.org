@@ -13,5 +13,5 @@ Google Code改变政策禁止把下载连接当做CDN来使用，导致之前用
 
 示例地址如下：
 
-* <http://cdn.elfjs.com/code/elf-0.4.1.js>
-* <http://cdn.elfjs.com/code/elf-0.4.1-min.js>
+* [http://cdn.elfjs.com/code/elf-0.4.1.js](http://cdn.elfjs.com/code/elf-0.4.1.js)
+* [http://cdn.elfjs.com/code/elf-0.4.1-min.js](http://cdn.elfjs.com/code/elf-0.4.1-min.js)
