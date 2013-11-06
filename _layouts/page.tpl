@@ -42,7 +42,7 @@
 	</div>
 </div>
 
-<script src="http://elfjs.googlecode.com/files/elf-0.4.0-min.js"></script>
+<script src="http://cdn.elfjs.com/code/elf-0.4.1-min.js"></script>
 <script src="/assets/js/site.js"></script>
 {% for script in page.scripts %}<script src="{{ script }}"></script>
 {% endfor %}
