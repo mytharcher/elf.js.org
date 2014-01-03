@@ -5,6 +5,7 @@
 <meta name="author" content="{{ page.author }}" />
 <meta name="keywords" content="{{ page.tags | join: ',' }}" />
 <meta name="google-site-verification" content="RylW_eYZwk85sTyPMVT0Rw1yBeplLJEEuL1Z6WDKcq0" />
+<meta name="baidu-tc-verification" content="6090c58a8b2b73e1c4820cd2aa2aa9a5" />
 <title>elf+js: {% if page.trace %}{{ page.trace }}{% else %}{{ page.title }}{% endif %}</title>
 <link rel="stylesheet" type="text/css" href="/assets/css/site.css" />
 {% for style in page.styles %}<link rel="stylesheet" type="text/css" href="{{ style }}" />
