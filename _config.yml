@@ -248,12 +248,12 @@ download:
         gzip: &down_type_gzip
             type: gzip
             title: GZip压缩
-            suffix: -min.js.gz
+            suffix: .min.js.gz
 
         min: &down_type_min
             type: min
             title: GCC压缩
-            suffix: -min.js
+            suffix: .min.js
 
         src: &down_type_src
             type: src
