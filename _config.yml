@@ -42,7 +42,49 @@ modules:
 release:
     latest: &latest_release
         current:  true
-        version:  0.4.1
+        version:  0.5.0
+        date:     2014-04-06
+        note:     /blog/posts/0.5.0-release-note.html
+        file:
+            src:
+                size: 249
+                sha1: 07383e84fb9f70fa032c6338506878cb6ba786bb
+            min:
+                size: 57
+                sha1: b8069168de7af49932a9d9908cdf69a924726519
+            gzip:
+                size: 18
+                sha1: 3a5238cc313a35fa9a4a4596dbff6344c041a4bc
+        extract: |
+            此版本调整了几个接口名称，修复一些问题，并改进了部分功能。
+        changes: |
+            * 增加`elf()`上的DOM操作类快捷方法；
+            * 增加`js.client.Device`对象，以判断Android/iPhone/iPad设备；
+            * 修改接口`js.text.Escaper.escapeReg()`为`js.text.Escaper.escapeRegExp()`；
+            * 修改接口`js.text.Encoder.encodeHTML()`为`js.text.Escaper.escapeHTML()`；
+            * 修复`Processor`类的异步队列方法；
+            * 增加`js.dom.Flash`类用于处理Flash相关；
+            * 增加`Ajax`类的请求`header`处理；
+            * 增加`Ajax`类发送纯文本的数据类型；
+            * 修复`Style`类获取样式方法的问题；
+            * 增加`Node`类实例的`map`方法；
+            * 修复获取`Document`对象时针对WebKit的适应；
+            * 修复`Node`类接口工厂方法；
+            * 修复DOM关系类相关方法；
+            * 修复DOM操作类相关方法，添加测试用例；
+            * 修复DOM事件类`input`事件处理；
+            * 修复`Hash`类修改时值为`null`的判断；
+            * 增加继承类的`__super__`指向超类引用；
+            * 修改`js.util.Class.implement`方法实现；
+            * 补全Array的ES5方法`[].lastIndexOf`；
+            * 补全Array的ES5方法`[].reduce`；
+            * 补全Array的ES5方法`[].reduceRight`；
+            * 增加`js.dom.BoxModel.isViewable()方法，用于判断元素是否在可视范围内；`
+
+    history:
+      - *latest_release
+
+      - version:  0.4.1
         date:     2012-12-10
         note:     /blog/posts/0.4.1-release-note.html
         file:
@@ -69,9 +111,6 @@ release:
             * 抽取并优化`js.util.Class.mix`方法；
             * 增加部分测试用例；
             * 修复`js.dom.Cookie.clear`方法的Bug；
-
-    history:
-      - *latest_release
 
       - version:  0.4.0
         date:     2012-04-18
