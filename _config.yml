@@ -43,18 +43,18 @@ release:
     latest: &latest_release
         current:  true
         version:  0.5.0
-        date:     2014-04-06
+        date:     2014-04-12
         note:     /blog/posts/0.5.0-release-note.html
         file:
             src:
                 size: 249
-                sha1: 07383e84fb9f70fa032c6338506878cb6ba786bb
+                sha1: 616d06a723d404be7b4308f7abc55f5382b26774
             min:
                 size: 57
-                sha1: b8069168de7af49932a9d9908cdf69a924726519
+                sha1: 8d0c03c0aebc897b4fc37bd95f8eccfd90b7b715
             gzip:
                 size: 18
-                sha1: 3a5238cc313a35fa9a4a4596dbff6344c041a4bc
+                sha1: a9dde9f07ae49e241d0868dfa1cbef13cb47f40b
         extract: |
             此版本调整了几个接口名称，修复一些问题，并改进了部分功能。
         changes: |
