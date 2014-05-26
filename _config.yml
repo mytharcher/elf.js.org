@@ -48,13 +48,13 @@ release:
         file:
             src:
                 size: 249
-                sha1: 616d06a723d404be7b4308f7abc55f5382b26774
+                sha1: c4493c8c44a4d02e2c44ff44e6b78fc8d1d06a07
             min:
                 size: 57
-                sha1: 8d0c03c0aebc897b4fc37bd95f8eccfd90b7b715
+                sha1: ae128430420511deba83a87260b4759b5b46c11c
             gzip:
                 size: 18
-                sha1: a9dde9f07ae49e241d0868dfa1cbef13cb47f40b
+                sha1: 42c9e19e09b73c9f1b5cb833097c1a0e1c1e2eb4
         extract: |
             此版本调整了几个接口名称，修复一些问题，并改进了部分功能。
         changes: |
@@ -79,7 +79,8 @@ release:
             * 补全Array的ES5方法`[].lastIndexOf`；
             * 补全Array的ES5方法`[].reduce`；
             * 补全Array的ES5方法`[].reduceRight`；
-            * 增加`js.dom.BoxModel.isViewable()方法，用于判断元素是否在可视范围内；`
+            * 增加`js.dom.BoxModel.isViewable()`方法，用于判断元素是否在可视范围内；
+            * 修复`js.util.Processor`中单词拼写错误；
 
     history:
       - *latest_release
