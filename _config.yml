@@ -48,13 +48,13 @@ release:
         file:
             src:
                 size: 249
-                sha1: c4493c8c44a4d02e2c44ff44e6b78fc8d1d06a07
+                sha1: 04de8419aea9c9311320a4c07263c7ebf5f283c6
             min:
                 size: 57
-                sha1: ae128430420511deba83a87260b4759b5b46c11c
+                sha1: c62dbb3f1d68a4e1f73ba99dad9c52a8437b2e47
             gzip:
                 size: 18
-                sha1: 42c9e19e09b73c9f1b5cb833097c1a0e1c1e2eb4
+                sha1: 875a4727c4e8d3f6c43299fdcb2ac80f313219ea
         extract: |
             此版本调整了几个接口名称，修复一些问题，并改进了部分功能。
         changes: |
