@@ -42,7 +42,33 @@ modules:
 release:
     latest: &latest_release
         current:  true
-        version:  0.5.0
+        version:  0.5.1
+        date:     2015-03-28
+        note:     /blog/posts/0.5.1-release-note.html
+        file:
+            src:
+                size: 250
+                sha1: dc3d86151ccc018751170cbc52068ebee3bf317a
+            min:
+                size: 57
+                sha1: 7fabf1947f2612db24ebecd0c172791631304d8e
+            gzip:
+                size: 18
+                sha1: ec526ae6ce1038c0a6e25b90dd4907be5ac0cf09
+        extract: |
+            此版本修复了一些次要问题。
+        changes: |
+            * 增加`js.dom.Attribute.remove()`方法；
+            * 修改`js.net.Ajax`类的`pureText`属性为`enctype`，可供更多配置；
+            * 修改`js.text.Template`类，编译时会去除换行和变量名头尾空格；
+            * 修复`js.util.Namespace.get()`方法获取`0`和`false`值被忽略的bug；
+            * 增加`js.util.Processor.asyncQueue()`方法的调用对象`locals`配置；
+            * 修复部分TAB和SPACE混用的问题；
+
+    history:
+      - *latest_release
+
+      - version:  0.5.0
         date:     2014-04-12
         note:     /blog/posts/0.5.0-release-note.html
         file:
@@ -81,9 +107,6 @@ release:
             * 补全Array的ES5方法`[].reduceRight`；
             * 增加`js.dom.BoxModel.isViewable()`方法，用于判断元素是否在可视范围内；
             * 修复`js.util.Processor`中单词拼写错误；
-
-    history:
-      - *latest_release
 
       - version:  0.4.1
         date:     2012-12-10
