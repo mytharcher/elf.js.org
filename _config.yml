@@ -48,13 +48,13 @@ release:
         file:
             src:
                 size: 250
-                sha1: dc3d86151ccc018751170cbc52068ebee3bf317a
+                sha1: 292b3d655e93c52cb0491badbde75b55cbb933ef
             min:
                 size: 57
-                sha1: 7fabf1947f2612db24ebecd0c172791631304d8e
+                sha1: e9f04e3a0c78fd919de6d6e2bdb53199bfd0b161
             gzip:
                 size: 18
-                sha1: ec526ae6ce1038c0a6e25b90dd4907be5ac0cf09
+                sha1: 98530a2a1896e2a0664b8587147c4d755a4d62c2
         extract: |
             此版本修复了一些次要问题。
         changes: |
