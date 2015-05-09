@@ -3,7 +3,7 @@ html,body,h1,h2,h3,h4,h5,h6,ul,ol,li,p,form,dl,dt,dd,figure{margin:0; padding:0;
 body{font:100%/1.4em Helvetica, Arial, sans-serif; color:#555; background:#f7f7f7;}
 a{margin:0 2px; color:#06c; text-decoration:none;}
 a[href^="http"]{display:inline-block; padding-right:14px; background:url(img/external.png) no-repeat right;}
-a[href^="http://elfjs.com"]{padding-right:0; background:none;}
+a[href^="http://elf.js.org"]{padding-right:0; background:none;}
 a:hover{text-decoration:underline;}
 img{border:0;}
 q{margin:0 2px; color:#06c; cursor:pointer;}

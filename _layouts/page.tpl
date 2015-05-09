@@ -21,7 +21,7 @@
 	<div id="MainPage" class="{{ page.pageClass }}">
 		<div id="Header">
 			<div class="layout-section">
-				<div class="logo"><a href="http://elfjs.com/"><img src="/assets/img/logo{{ page.logoType }}.png" alt="elf+js" title="体验愉悦的JavaScript开发" /></a></div>
+				<div class="logo"><a href="http://elf.js.org/"><img src="/assets/img/logo{{ page.logoType }}.png" alt="elf+js" title="体验愉悦的JavaScript开发" /></a></div>
 				<div class="additional">{% if page.traceHTML %}{{ page.traceHTML }}{% else %}{{ page.title }}{% endif %}</div>
 			</div>
 			<div class="layout-aside">
@@ -38,7 +38,7 @@
 		
 		<div id="Footer">
 			<p>该项目所有代码使用<a href="http://github.com/elfjs/" target="_blank">github</a>托管，并以<a href="/LICENSE" target="_blank">MIT协议</a>授权许可。[<a href="/docs/develop/contributor.html">贡献者</a>]</p>
-			<p>&copy; Since 2011 <a href="http://elfjs.com/">elfjs.com</a> | <a href="http://groups.google.com/group/elfjs" target="_blank">Google Group</a> | <a href="#" class="email-link">elfjs<span class="symbol">[at]</span>googlegroups<span class="symbol">[dot]</span>com</a></p>
+			<p>&copy; Since 2011 <a href="http://elf.js.org/">elf.js.org</a></p>
 		</div>
 	</div>
 </div>

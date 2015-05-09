@@ -96,7 +96,7 @@ jslib中设计的URL管理类完成了对URL数据结构的封装，对外提供
 对应的我们也设计了相应的set方法，如果需要设置其中任何一个部分，可以使用对应的set方法：
 
 	url.setProtocol(js.net.URL.PROTOCOL_HTTPS);
-	url.setHostname('elfjs.com');
+	url.setHostname('elf.js.org');
 	url.setPort(443);
 	url.setPath('../docs/index.html');
 	url.setParameter({a: 100, b: '中文'});
@@ -111,7 +111,7 @@ URL的参数设置的方法和URLParameter中的set方法的接口完全一致�
 当我们需要最终得到一个URL完整字符串时，我们可以调用实例的`toString()`方法，该方法可以传入一个编码函数，以提供对URL参数的编码，例如：
 
 	console.log(url.toString(encodeURIComponent));
-	// 'https://elfjs.com:443/docs/index.html?a=100&b=%E4%B8%AD%E6%96%87#some-part'
+	// 'https://elf.js.org:443/docs/index.html?a=100&b=%E4%B8%AD%E6%96%87#some-part'
 
 有了这些方法，那么在处理URL的时候就会非常方便了。
 
