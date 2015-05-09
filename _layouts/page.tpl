@@ -37,8 +37,7 @@
 		<div id="MainBody" class="{{page.mainClass}}">{{ content }}</div>
 		
 		<div id="Footer">
-			<p>该项目所有代码使用<a href="http://github.com/elfjs/" target="_blank">github</a>托管，并以<a href="/LICENSE" target="_blank">MIT协议</a>授权许可。[<a href="/docs/develop/contributor.html">贡献者</a>]</p>
-			<p>&copy; Since 2011 <a href="http://elf.js.org/">elf.js.org</a></p>
+			<p>&copy; Since 2011 <a href="http://elf.js.org/">elf.js.org</a> 该项目所有代码使用<a href="http://github.com/elfjs/" target="_blank">github</a>托管，并以<a href="/LICENSE" target="_blank">MIT协议</a>授权许可。[<a href="/docs/develop/contributor.html">贡献者</a>]</p>
 		</div>
 	</div>
 </div>
